@@ -41,6 +41,7 @@
     "vite-tsconfig-paths": "4.2.0"
   },
   "dependencies": {
+    "datocms-structured-text-to-html-string": "^2.1.11",
     "graphql-request": "^6.1.0"
   }
 }

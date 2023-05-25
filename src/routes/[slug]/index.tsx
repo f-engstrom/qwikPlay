@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
 import { request } from "~/lib/dato";
 import { PAGE_QUERY } from "~/querys/querys";
+import { render } from "datocms-structured-text-to-html-string";
 
 export const useProductDetails = routeLoader$(async (requestEvent) => {
   // This code runs only on the server, after every navigation
@@ -27,6 +28,7 @@ export default component$(() => {
         <h3>{signal.value.title}</h3>
       </div>
       <img src={signal.value.mainImage.url} alt="" />
+      {render(signal.value.content.value)}
     </div>
   );
 });
