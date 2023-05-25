@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { routeLoader$, useLocation } from "@builder.io/qwik-city";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { request } from "~/lib/dato";
 import { PAGE_QUERY } from "~/querys/querys";
 import { render } from "datocms-structured-text-to-html-string";
@@ -12,14 +12,13 @@ export const useProductDetails = routeLoader$(async (requestEvent) => {
       pageSlug: requestEvent.params.slug,
       mainImageHeight: 400,
     },
+    preview: false,
   });
   return page;
 });
 
 export default component$(() => {
-  const loc = useLocation();
   const signal = useProductDetails(); // Readonly<Signal<Product>>
-  console.log(loc, signal, signal.value, signal.title);
   return (
     <div class="flex flex-col items-center justify-center">
       <div role="presentation" class="ellipsis"></div>
