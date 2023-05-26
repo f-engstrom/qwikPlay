@@ -6,6 +6,7 @@ import { request } from "~/lib/dato";
 
 export const useProductDetails = routeLoader$(async (requestEvent) => {
   // This code runs only on the server, after every navigation
+  // @ts-ignore
   const { page } = await request({
     query: PAGE_QUERY,
     variables: {
@@ -18,7 +19,7 @@ export const useProductDetails = routeLoader$(async (requestEvent) => {
 });
 
 export default component$(() => {
-  const signal = useProductDetails(); // Readonly<Signal<Product>>
+  const signal = useProductDetails();
   return (
     <div class="flex flex-col items-center justify-center">
       <div role="presentation" class="ellipsis"></div>
