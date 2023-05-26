@@ -1,8 +1,8 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { request } from "~/lib/dato";
 import { PAGE_QUERY } from "~/querys/querys";
 import { render } from "datocms-structured-text-to-html-string";
+import { request } from "~/lib/dato";
 
 export const useProductDetails = routeLoader$(async (requestEvent) => {
   // This code runs only on the server, after every navigation
