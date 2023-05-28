@@ -9,7 +9,7 @@ interface Page {
   allProducts: Product[];
 }
 
-const getProducts = routeLoader$(async (requestEvent): Promise<Page> => {
+const getProducts = routeLoader$(async (): Promise<Page> => {
   const page = await request<Page>({
     query: ALL_PRODUCTS_QUERY,
     variables: { productImagesHeight: 400 },

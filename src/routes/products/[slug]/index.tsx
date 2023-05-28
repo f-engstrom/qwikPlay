@@ -1,15 +1,11 @@
 import { component$, useContext } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import type { StructuredTextDocument } from "datocms-structured-text-to-html-string";
 import { render } from "datocms-structured-text-to-html-string";
 import { request } from "~/lib/dato";
 import type { Product } from "~/models/models";
 import { PRODUCT_QUERY } from "~/querys/querys";
 import { cartContext } from "~/routes/layout";
 
-interface Page {
-  product: Product;
-}
 const getProduct = routeLoader$(async (requestEvent): Promise<Product> => {
   const { product } = await request<{ product: Product }>({
     query: PRODUCT_QUERY,

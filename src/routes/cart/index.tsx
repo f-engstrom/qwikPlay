@@ -1,6 +1,5 @@
 import { Resource, component$, useResource$ } from "@builder.io/qwik";
 import { createClient } from "@supabase/supabase-js";
-import { createBrowserClient } from "supabase-auth-helpers-qwik";
 import CartItem from "~/components/cart/cartItem";
 
 // export const useDBTest = routeLoader$(async (requestEv) => {
@@ -18,7 +17,7 @@ import CartItem from "~/components/cart/cartItem";
 
 export default component$(() => {
   //   const signal = useDBTest();
-  const cartResource = useResource$<any>(({ track, cleanup }) => {
+  const cartResource = useResource$<any>(() => {
     // track(() => github.org);
 
     return getCart();
