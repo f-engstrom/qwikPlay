@@ -19,6 +19,15 @@ export const PAGES_QUERY = `query Pages {
   }
 }`;
 
+export const CATALOGUE_QUERY = `query {
+  allCategories {
+    categoryName
+  }
+  allBrands {
+    brandName
+  }
+}`;
+
 export const HOMEPAGE_QUERY = `query HomePage($nrProducts:IntType,$mainImageHeight:FloatType,$productImagesHeight:FloatType) {
   startpage {
     title
@@ -40,8 +49,8 @@ export const HOMEPAGE_QUERY = `query HomePage($nrProducts:IntType,$mainImageHeig
   }
 }`;
 
-export const PRODUCT_QUERY = `query ProductQuery($id:ItemId,$imagesHeight:FloatType,$imagesWidth:FloatType) {
-   product(filter: {id: {eq: $id}}) {
+export const PRODUCT_QUERY = `query ProductQuery($slug:String,$imagesHeight:FloatType,$imagesWidth:FloatType) {
+   product(filter: {slug: {eq: $slug}}) {
      id
     price
     name
@@ -71,9 +80,8 @@ export const ALL_PRODUCTS_QUERY = `query allProducts($productImagesHeight:FloatT
     id
     name
     price
-    description {
-      value
-    }
+    slug
+    shortDescription
     mainImage {
       url(imgixParams:{h:$productImagesHeight,fit:crop})
     }
