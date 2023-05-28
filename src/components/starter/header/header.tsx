@@ -2,8 +2,8 @@ import { component$, useContext, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { cartContext } from "~/routes/layout";
 interface Props {
-  brands: string[];
-  categories: string[];
+  brands: { brandName: string }[];
+  categories: { categoryName: string }[];
 }
 
 export default component$(({ brands, categories }: Props) => {
@@ -35,7 +35,6 @@ export default component$(({ brands, categories }: Props) => {
                         class="border-transparent text-gray-700 hover:text-gray-800 relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out"
                         aria-expanded="false"
                         onClick$={() => {
-                          console.log("mamma", open.value);
                           open.value = !open.value;
                         }}
                       >

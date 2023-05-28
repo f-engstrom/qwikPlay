@@ -16,8 +16,8 @@ import { request } from "~/lib/dato";
 import { CATALOGUE_QUERY } from "~/querys/querys";
 
 export const getPageFromDato = routeLoader$(
-  async (requestEvent): Promise<Page> => {
-    const page = await request<Page>({
+  async (requestEvent): Promise<any> => {
+    const page = await request({
       query: CATALOGUE_QUERY,
     });
     if (!page) {

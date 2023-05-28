@@ -4,7 +4,7 @@ interface Props {
   id: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
   href: string;
   imageSrc: string;
   imageAlt: string;
